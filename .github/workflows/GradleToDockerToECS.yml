@@ -36,6 +36,7 @@ jobs:
                   path: build/libs/demo-0.0.1-SNAPSHOT.jar
 
     dockerize:
+        needs: build
         runs-on: ubuntu-20.04
         permissions:
             contents: write
