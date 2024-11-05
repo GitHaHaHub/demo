@@ -1,0 +1,24 @@
+{
+"version": 1,
+"Resources": [
+    {
+    "TargetService": {
+        "Type": "AWS::ECS::Service",
+        "Properties": {
+        "TaskDefinition": "arn:aws:ecs:ap-northeast-2:203918852273:task-definition/PtlinkTaskDef:12",
+        "LoadBalancerInfo": {
+            "ContainerName": "ptlink-container",
+            "ContainerPort": 8080
+        },
+        "CapacityProviderStrategy": [
+            {
+                "CapacityProvider": "Infra-ECS-Cluster-DC5-7289d35f-EC2CapacityProvider-9yg3sHggux3Q",
+                "Base": 0,
+                "Weight": 1
+            }
+        ]
+        }
+    }
+    }
+]
+}
