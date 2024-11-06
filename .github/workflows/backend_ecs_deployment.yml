@@ -19,7 +19,7 @@ env:
   ECR_REPOSITORY: ptlink/ptlink-server           # set this to your Amazon ECR repository name
   ECS_SERVICE: DS5                 # set this to your Amazon ECS service name
   ECS_CLUSTER: DC5                 # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: ptlink-server/task-definition.json # set this to the path to your Amazon ECS task definition
+  ECS_TASK_DEFINITION: task-definition.json # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: ptlink-container           # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
@@ -29,9 +29,7 @@ jobs:
       runs-on: ubuntu-22.04
       permissions:
         contents: read
-      defaults:
-        run:
-          working-directory: ptlink-server
+
 
       steps:
         - uses: actions/checkout@v4
@@ -53,20 +51,23 @@ jobs:
           uses: actions/upload-artifact@v4
           with:
             name: myjar
-            path: ptlink-server/build/libs/ptlink-server-0.0.1-SNAPSHOT.jar
+            path: build/libs/ptlink-server-0.0.1-SNAPSHOT.jar
 
   deploy:
     name: Deploy
     needs: build
     runs-on: ubuntu-22.04
-    defaults:
-      run:
-        working-directory: ptlink-server
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: myjar
+          path: build/libs/ptlink-server-0.0.1-SNAPSHOT.jar
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -77,12 +78,6 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
-
-      - name: Download Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: myjar
-          path: ptlink-server/build/libs/ptlink-server-0.0.1-SNAPSHOT.jar
 
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
