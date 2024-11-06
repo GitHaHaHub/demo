@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ptlink.ptlink_server.PtlinkServerApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-10-31T13:51:06" hostname="hajaejeongs-MacBook-Pro.local" time="0.445">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.ptlink.ptlink_server.PtlinkServerApplicationTests" time="0.445"/>
+  <system-out><![CDATA[22:51:05.381 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.ptlink.ptlink_server.PtlinkServerApplicationTests]: PtlinkServerApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:51:05.431 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.ptlink.ptlink_server.PtlinkServerApplication for test class com.ptlink.ptlink_server.PtlinkServerApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2024-10-31T22:51:05.594+09:00  INFO 16991 --- [ptlink-server] [    Test worker] c.p.p.PtlinkServerApplicationTests       : Starting PtlinkServerApplicationTests using Java 17.0.12 with PID 16991 (started by hajaejung in /Users/hajaejung/Work/PartTimerLink/ptlink-server)
+2024-10-31T22:51:05.595+09:00  INFO 16991 --- [ptlink-server] [    Test worker] c.p.p.PtlinkServerApplicationTests       : No active profile set, falling back to 1 default profile: "default"
+2024-10-31T22:51:06.055+09:00  INFO 16991 --- [ptlink-server] [    Test worker] c.p.p.PtlinkServerApplicationTests       : Started PtlinkServerApplicationTests in 0.562 seconds (process running for 1.115)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

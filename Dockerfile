@@ -19,10 +19,10 @@ ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 ENV PATH="$JAVA_HOME/bin:$PATH"
 
 # Add Spring Boot 3.3.5 application JAR (assumed to be present in build context)
-COPY /build/libs/ptlink-server-0.0.1-SNAPSHOT.jar /app.jar
+COPY build/libs/ptlink-server-0.0.1-SNAPSHOT.jar /abc.jar
 
 # Expose port 8080 for Spring Boot
 EXPOSE 8080
 
 # Run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/abc.jar"]
